@@ -1,0 +1,49 @@
+# FastAPI Subfeddit APIs
+This is a FastAPI project implementing an API for managing Subfeddit comments. The API provides endpoints to retrieve recent comments and comments within a specified date range.
+
+## Endpoints
+### 1. Get Recent Comments
+Endpoint: /subfeddit/_recent_comments
+Method: GET
+Parameters:
+title: Title of the Subfeddit topic.
+
+### 2. Get Comments in Date Range
+Endpoint: /subfeddit/_comments_date_range
+Method: GET
+Parameters:
+title: Title of the Subfeddit topic.
+start: Start date in ISO format (e.g., "2023-01-01").
+end: End date in ISO format (e.g., "2023-12-31").
+
+## How to Run
+
+### Install dependencies:
+pip install -r requirements.txt
+
+### Run the FastAPI server:
+uvicorn feddit:app --reload --host=127.0.0.1 --port=8000
+
+### Alternatively 
+Add below to feddit.py 
+if __name__ == '__main__':
+    uvicorn.run(app, host="127.0.0.1", port=8000)
+Run: python feddit.py
+
+### Note - Please ensure to run `Source Feddit` API locally in the terminal
+
+## General Workflow
+### feddit.py
+This is the entry point containg the API endpoint code
+
+### subfeddit_controller.py
+This is the code with bussiness flow and logic
+
+### util/feddit_util.py
+This contains the reusable utilities
+
+### util/logger_util.py
+This contains logger utility
+
+ 
+ 

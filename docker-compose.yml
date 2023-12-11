@@ -1,0 +1,14 @@
+version: '3'
+
+services:
+  web:
+    build: .
+    command: sh -c "uvicorn feddit:app --reload --port=8000 --host=0.0.0.0"
+    #env_file:
+     # - .env #giving path of env file
+    ports:
+      - 8000:8000
+
+    volumes: 
+      - .:/app #syncing volumes to listen to changes in our file
+  
